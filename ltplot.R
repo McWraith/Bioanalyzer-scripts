@@ -1,5 +1,5 @@
-## This function creates a red scatter plot with type 'l'
-## and with set labels and x-axis limits
+## This function creates a red line type scatter plot 
+## with default axis labels and x-axis limits
 ## It also resets the layout to a single plot by default
 
 ltplot <- function(x, type = "l", 
