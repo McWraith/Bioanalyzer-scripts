@@ -1,21 +1,10 @@
-plotChip <- function(chip, type = "l", 
-                     xlab = "Time (sec)", 
-                     ylab = "(FU)", 
-                     col = "red", 
-                     xlim = c(18,55)) {
-        
-        for(smpl in chip) {
-                # 'Calls' the objects 'Sample1' to 'Sample12' 
-                # of appropriate data frames
-                b <- get(nam)             
-                # Plots a red, line scatter plot for each data frame
-                # with pre-defined axis lables and x-axis limits
-                plot(b$Time, b$Value,
-                     type = type,
-                     col = col,
-                     xlim = xlim,
-                     xlab = xlab,
-                     ylab = ylab,
-                     main = titles[i])
-        }
+plotChip <- function(chip, directory = getwd(), no.samples = 12, ...) {
+  title.table <- readLines(paste(directory, 'titles.txt', sep = '/'), 
+                           warn = FALSE)
+  t = 0
+  for(i in c(1:no.samples*2)) {
+    t = t+1
+    ltplot(x = chip[,i-1], y = chip[,i], ..., 
+           main = title.table[t], reset = FALSE)
+  }
 }

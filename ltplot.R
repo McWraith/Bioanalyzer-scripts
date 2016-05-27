@@ -2,7 +2,8 @@
 ## with default axis labels and x-axis limits
 ## It also resets the layout to a single plot by default
 
-ltplot <- function(x, type = "l", 
+ltplot <- function(...,
+                   type = "l", 
                    xlab = "Time (sec)", 
                    ylab = "(FU)", 
                    col = "red", 
@@ -12,5 +13,5 @@ ltplot <- function(x, type = "l",
                 layout(1) # Resets layout to a single plot
         }
         
-        plot(x, type = type, xlab = xlab, ylab = ylab, col = col, xlim = xlim)
+        plot(..., type = type, xlab = xlab, ylab = ylab, col = col, xlim = xlim)
 }
